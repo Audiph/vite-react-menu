@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Category = ({ title }) => {
+const Category = ({ name, filterMenu }) => {
   return (
-    <button className="btn" type="button">
-      {title}
+    <button className="btn" type="button" onClick={() => filterMenu(name)}>
+      {name}
     </button>
   );
 };

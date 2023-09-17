@@ -7,12 +7,21 @@ import menu from './data';
 const App = () => {
   const [meals, setMeals] = useState(menu);
 
+  const filterMenu = (category) => {
+    if (category === 'all') {
+      setMeals(menu);
+      return;
+    }
+    const newMenu = menu.filter((meal) => meal.category === category);
+    setMeals(newMenu);
+  };
+
   return (
     <main>
       <section className="menu">
         <Title />
-        <Categories />
-        <Meals menu={menu} />
+        <Categories filterMenu={filterMenu} />
+        <Meals menu={meals} />
       </section>
     </main>
   );
